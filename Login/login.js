@@ -53,7 +53,7 @@ form2.addEventListener('submit', (e) => {
 
 
 // Fetch Data And Show Them In Cart Menu
-fetch('http://localhost:3000/cart').then((res) => res.json()).then(data => {
+fetch('https://herschel-db.onrender.com/cart').then((res) => res.json()).then(data => {
   let  dataLength = data.length
   cartData(data, dataLength) 
 });
@@ -85,7 +85,7 @@ document.addEventListener('click', (e) => {
   }
 })
 function deleteCart(id) {
-  fetch(`http://localhost:3000/cart/${id}`, {
+  fetch(`https://herschel-db.onrender.com/cart/${id}`, {
     method: 'DELETE'
   }).then((res) => res.json()).then(data => cartData(data));
 }

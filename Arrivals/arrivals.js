@@ -1,7 +1,7 @@
 let filterData = [];
 
 // Fetch Card Data And Showing
-fetch("http://localhost:3000/Arrivals_Data")
+fetch("https://herschel-db.onrender.com/Arrivals_Data")
   .then((res) => res.json())
   .then((data) => {
     makeCards(data);
@@ -104,7 +104,7 @@ document.querySelector("#Totes").addEventListener("click", () => {
 });
 
 // Fetch Data And Show Them In Cart Menu
-fetch('http://localhost:3000/cart').then((res) => res.json()).then(data => {
+fetch('https://herschel-db.onrender.com/cart').then((res) => res.json()).then(data => {
   let  dataLength = data.length
   cartData(data, dataLength) 
 });
@@ -138,7 +138,7 @@ document.addEventListener('click',(e)=>{
 })
 
 function deleteCart(id){
-  fetch(`http://localhost:3000/cart/${id}`,{
+  fetch(`https://herschel-db.onrender.com/cart/${id}`,{
     method: 'DELETE'
   }).then((res) => res.json()).then(data => cartData(data));
 }

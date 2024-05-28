@@ -1,5 +1,5 @@
 // Slider Data
-fetch('http://localhost:3000/Shop_Categories_Slider').then(res => res.json()).then(data => sliderData(data))
+fetch('https://herschel-db.onrender.com/Shop_Categories_Slider').then(res => res.json()).then(data => sliderData(data))
 function sliderData(data) {
   let Fetch_Data = data.map((el, i) => slide(el.images, el.slider_title, el.price, el.category));
   document.querySelector('.slider').innerHTML = Fetch_Data.join("");
@@ -19,7 +19,7 @@ function slide(image, title, price, category) {
 }
 
 // Suggested Data
-fetch('http://localhost:3000/Shop_Categories').then((res) => res.json()).then(data => shopCategori_Data(data));
+fetch('https://herschel-db.onrender.com/Shop_Categories').then((res) => res.json()).then(data => shopCategori_Data(data));
 function shopCategori_Data(data) {
   let categorie_Data = data.map((el) => Categorie(el.images, el.title, el.discription))
   document.querySelector('.shop-categorie').innerHTML = categorie_Data;
@@ -41,7 +41,7 @@ function Categorie(images, title, discription) {
 }
 
 // Fetch Data And Show Them In Cart Menu
-fetch('http://localhost:3000/cart').then((res) => res.json()).then(data => {
+fetch('https://herschel-db.onrender.com/cart').then((res) => res.json()).then(data => {
   let  dataLength = data.length
   cartData(data, dataLength) 
 });
@@ -75,7 +75,7 @@ document.addEventListener('click',(e)=>{
 })
 
 function deleteCart(id){
-  fetch(`http://localhost:3000/cart/${id}`,{
+  fetch(`https://herschel-db.onrender.com/cart/${id}`,{
     method: 'DELETE'
   }).then((res) => res.json()).then(data => cartData(data));
 }
