@@ -140,5 +140,8 @@ document.addEventListener('click',(e)=>{
 function deleteCart(id){
   fetch(`https://herschel-db.onrender.com/cart/${id}`,{
     method: 'DELETE'
-  }).then((res) => res.json()).then(data => cartData(data));
+  }).then((res) => res.json()).then(data => {
+    window.location.reload()
+    cartData(data)
+  });
 }

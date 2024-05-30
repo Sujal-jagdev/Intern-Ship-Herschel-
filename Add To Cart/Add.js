@@ -19,7 +19,11 @@ document.querySelector('#addCart').addEventListener('click', () => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(cartOBJ)
-  }).then((res) => res.json()).then(data => alert("Prodect Added"));
+  }).then((res) => res.json()).then(data => {
+    alert("Prodect Added")
+    window.location.reload()
+  });
+
 })
 
 // Fetch Data And Show Them In Cart Menu  
@@ -59,5 +63,8 @@ document.addEventListener('click',(e)=>{
 function deleteCart(id){
   fetch(`https://herschel-db.onrender.com/cart/${id}`,{
     method: 'DELETE'
-  }).then((res) => res.json()).then(data => cartData(data));
+  }).then((res) => res.json()).then(data => {
+    window.location.reload()
+    cartData(data)
+  });
 }
